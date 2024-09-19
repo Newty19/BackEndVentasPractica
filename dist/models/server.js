@@ -15,6 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const ventas_1 = __importDefault(require("../routes/ventas"));
+const productos_1 = __importDefault(require("../routes/productos"));
+const clientes_1 = __importDefault(require("../routes/clientes"));
+const tipoClientes_1 = __importDefault(require("../routes/tipoClientes"));
 const connection_1 = __importDefault(require("../db/connection"));
 class Server {
     constructor() {
@@ -37,6 +40,9 @@ class Server {
             });
         });
         this.app.use('/api/ventas', ventas_1.default);
+        this.app.use('/api/productos', productos_1.default);
+        this.app.use('/api/cliente', clientes_1.default);
+        this.app.use('/api/tipoCliente', tipoClientes_1.default);
     }
     midlewares() {
         this.app.use(express_1.default.json());

@@ -1,6 +1,9 @@
 import express, {Request, Response} from 'express';
 import cors from 'cors';
 import routesVentas from '../routes/ventas';
+import routesProductos from '../routes/productos';
+import routesClientes from '../routes/clientes';
+import routesTipoClientes from '../routes/tipoClientes';
 import db from '../db/connection';
 
 class Server {
@@ -21,14 +24,16 @@ class Server {
             console.log(`Running at port ${this.port}`)
         })
     }
-
     routes() {
         this.app.get('/', (req: Request, res: Response) => {
             res.json({
                 msg: "Api working"
             })
         })
-        this.app.use('/api/ventas', routesVentas)
+        this.app.use('/api/ventas', routesVentas);
+        this.app.use('/api/productos', routesProductos);
+        this.app.use('/api/cliente', routesClientes);
+        this.app.use('/api/tipoCliente', routesTipoClientes);
     }
     midlewares(){
         this.app.use(express.json());

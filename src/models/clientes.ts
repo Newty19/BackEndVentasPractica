@@ -1,25 +1,23 @@
 import db from '../db/connection';
 import { DataTypes } from 'sequelize';
 
-const Venta = db.define('ventasdetalles', {
-    cliente: {
+const Cliente = db.define('clientes', {
+    nombre: {
         type: DataTypes.STRING
     },
-    folio: {
+    direccion: {
         type: DataTypes.STRING
+    },
+    tipoCliente: {
+        type: DataTypes.NUMBER
     },
     fecha: {
         type: DataTypes.STRING
-    },
-    producto: {
-        type: DataTypes.STRING
-    },
-    cantidad: {
-        type: DataTypes.NUMBER
     }
+    
 }, {
     createdAt: false,
     updatedAt: false
 });
 
-export default Venta; 
+export default Cliente;

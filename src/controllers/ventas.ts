@@ -11,7 +11,7 @@ export const getVenta = async (req: Request, res: Response) => {
     const { id } = req.params;
     const venta = await Venta.findByPk(id);
     if(venta){
-        res.json(venta)
+        res.json(venta);
     }else{
         res.status(404).json({
             msg: "No existe esa venta"
